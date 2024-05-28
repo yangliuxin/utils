@@ -1,0 +1,18 @@
+{
+    "name": "yangliuxin/utils",
+    "description": "utils",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Yangliuxin\\Utils\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "liuxin",
+            "email": "lxyang_21@163.com"
+        }
+    ],
+    "require": {}
+}
