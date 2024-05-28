@@ -6,7 +6,10 @@
     "autoload": {
         "psr-4": {
             "Yangliuxin\\Utils\\": "src/"
-        }
+        },
+        "files": [
+            "src/Helpers/functions.php"
+        ]
     },
     "authors": [
         {
@@ -14,5 +17,12 @@
             "email": "lxyang_21@163.com"
         }
     ],
-    "require": {}
+    "require": {
+        "php": ">=8.0",
+        "alibabacloud/smsintl": "^1.8",
+        "guzzlehttp/guzzle": "^7.8",
+        "lcobucci/jwt": "^4.3",
+        "aliyuncs/oss-sdk-php": "^2.7",
+        "w7corp/easywechat": "^6.7"
+    }
 }

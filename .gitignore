@@ -12,3 +12,4 @@
 .github
 !.gitkeep
 vendor/
+composer.lock
