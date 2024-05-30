@@ -34,3 +34,18 @@ function str_random(int $length = 16): string
 
     return $string;
 }
+
+function getIpInfo($ip){
+    $get_city = 'http://whois.pconline.com.cn/ipJson.jsp?json=true&ip=' . $ip;
+    try {
+        $content = file_get_contents($get_city);
+        $data = json_decode($content, true);
+        if($data && isset($data['pro']) && isset($data['city'])){
+            return ['province' => $data['pro'], 'city' => $data['city']];
+        }
+        return ['province' => '', 'city' => ''];
+    } catch (\Exception $e) {
+        return ['province' => '', 'city' => ''];
+    }
+
+}
