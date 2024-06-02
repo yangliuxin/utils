@@ -62,5 +62,10 @@ class ServiceConstant
         ];
     }
 
+    public static function buildCouldHandleException($code, $message): \Exception
+    {
+        return new \Exception(json_encode(['message' => $message], 320), $code);
+    }
+
 
 }
