@@ -27,7 +27,7 @@ use Lcobucci\JWT\Validation\RequiredConstraintsViolated;
 class JwtUtils
 {
 
-    public static function makeToken($uid,$jwtKey,$iss, $aud): string
+    public static function makeToken($uid,$jwtKey,$iss, $aud, $expireDays = '+240 hour'): string
     {
         $tokenBuilder = (new Builder(new JoseEncoder(), ChainedFormatter::default()));
         $config = self::createJwt($jwtKey);
@@ -39,7 +39,7 @@ class JwtUtils
             ->identifiedBy('token_' . time())
             ->issuedAt($now)
             ->canOnlyBeUsedAfter($now->modify('+0 second'))
-            ->expiresAt($now->modify('+240 hour'))
+            ->expiresAt($now->modify($expireDays))
             ->withClaim('uid', $uid)
             ->withHeader('foo', 'bar')
             ->getToken($config->signer(), $config->signingKey());
